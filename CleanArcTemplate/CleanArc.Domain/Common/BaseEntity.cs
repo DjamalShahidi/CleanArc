@@ -2,6 +2,10 @@
 {
     public abstract class BaseEntity<TKey> : IEntity, ITimeModification
     {
+        public BaseEntity()
+        {
+            CreateDate = DateTime.UtcNow;
+        }
         public TKey Id { get; protected set; }
         public DateTime CreateDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
