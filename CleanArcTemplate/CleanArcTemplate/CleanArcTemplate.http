@@ -1,0 +1,6 @@
+@CleanArcTemplate_HostAddress = http://localhost:5155
+
+GET {{CleanArcTemplate_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
