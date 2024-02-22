@@ -7,25 +7,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{868AF82C-B63
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{39995191-A8DB-4D93-8D09-67EEDCE7C46C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArc.Web.Api", "CleanArc.Web.Api\CleanArc.Web.Api.csproj", "{55AA32F2-FA60-4E61-A45B-C8601DA41597}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArc.Web.Api", "CleanArc.Web.Api\CleanArc.Web.Api.csproj", "{55AA32F2-FA60-4E61-A45B-C8601DA41597}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E4117669-3EB2-458E-8546-537730FF89F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArc.Application", "CleanArc.Application\CleanArc.Application.csproj", "{DA3A39A8-279A-4729-AC03-BA76824C7972}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArc.Application", "CleanArc.Application\CleanArc.Application.csproj", "{DA3A39A8-279A-4729-AC03-BA76824C7972}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArc.Domain", "CleanArc.Domain\CleanArc.Domain.csproj", "{A567DC67-B16D-4C0B-89D9-EA787DD6A769}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArc.Domain", "CleanArc.Domain\CleanArc.Domain.csproj", "{A567DC67-B16D-4C0B-89D9-EA787DD6A769}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{ED38D821-557F-4308-A824-8E6E23294C66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArc.Infrastructure.CrossCutting", "CleanArc.Infrastructure.CrossCutting\CleanArc.Infrastructure.CrossCutting.csproj", "{C2C53FD2-B57D-4BB0-BDE9-60073CB96C27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArc.Infrastructure.CrossCutting", "CleanArc.Infrastructure.CrossCutting\CleanArc.Infrastructure.CrossCutting.csproj", "{C2C53FD2-B57D-4BB0-BDE9-60073CB96C27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArc.Infrastructure.Identity", "CleanArc.Infrastructure.Identity\CleanArc.Infrastructure.Identity.csproj", "{D037BDCE-01F3-4246-B01B-13470B97D851}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArc.Infrastructure.Identity", "CleanArc.Infrastructure.Identity\CleanArc.Infrastructure.Identity.csproj", "{D037BDCE-01F3-4246-B01B-13470B97D851}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArc.Infrastructure.Persistence", "CleanArc.Infrastructure.Persistence\CleanArc.Infrastructure.Persistence.csproj", "{0F4C0181-C48F-4B76-8BCC-6D72D1C7D805}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArc.Infrastructure.Persistence", "CleanArc.Infrastructure.Persistence\CleanArc.Infrastructure.Persistence.csproj", "{0F4C0181-C48F-4B76-8BCC-6D72D1C7D805}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{FDC598A1-9026-40D9-B2B1-BE506BCE13A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArc.SharedKernel", "CleanArc.SharedKernel\CleanArc.SharedKernel.csproj", "{F0161CA5-8F29-4D2A-9B5D-C0FB3DCC048D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArc.SharedKernel", "CleanArc.SharedKernel\CleanArc.SharedKernel.csproj", "{F0161CA5-8F29-4D2A-9B5D-C0FB3DCC048D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0DA4C5D0-9295-4436-9D74-9C5B33082B01}"
 EndProject
@@ -33,9 +33,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseSetup", "BaseSetup", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{6E337784-CCE3-46A4-A87A-28BA0AB571A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArc.Tests.Setup", "CleanArc.Tests.Setup\CleanArc.Tests.Setup.csproj", "{96C5C34D-0A24-4836-BAB4-2DB19652F6E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArc.Tests.Setup", "CleanArc.Tests.Setup\CleanArc.Tests.Setup.csproj", "{96C5C34D-0A24-4836-BAB4-2DB19652F6E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArc.Test.Infrastructure.Identity", "CleanArc.Test.Infrastructure.Identity\CleanArc.Test.Infrastructure.Identity.csproj", "{73CC4EA7-3E0D-4732-AD44-2C6BF2273351}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArc.Test.Infrastructure.Identity", "CleanArc.Test.Infrastructure.Identity\CleanArc.Test.Infrastructure.Identity.csproj", "{73CC4EA7-3E0D-4732-AD44-2C6BF2273351}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArc.WebFramework", "CleanArc.WebFramework\CleanArc.WebFramework.csproj", "{3DD8AA47-CEC8-4059-8A9E-E65F65E36AFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +81,10 @@ Global
 		{73CC4EA7-3E0D-4732-AD44-2C6BF2273351}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73CC4EA7-3E0D-4732-AD44-2C6BF2273351}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73CC4EA7-3E0D-4732-AD44-2C6BF2273351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DD8AA47-CEC8-4059-8A9E-E65F65E36AFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DD8AA47-CEC8-4059-8A9E-E65F65E36AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DD8AA47-CEC8-4059-8A9E-E65F65E36AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DD8AA47-CEC8-4059-8A9E-E65F65E36AFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +106,7 @@ Global
 		{6E337784-CCE3-46A4-A87A-28BA0AB571A1} = {0DA4C5D0-9295-4436-9D74-9C5B33082B01}
 		{96C5C34D-0A24-4836-BAB4-2DB19652F6E8} = {01F3C25C-7CDD-473D-96F9-C9F15F9CE25D}
 		{73CC4EA7-3E0D-4732-AD44-2C6BF2273351} = {6E337784-CCE3-46A4-A87A-28BA0AB571A1}
+		{3DD8AA47-CEC8-4059-8A9E-E65F65E36AFD} = {39995191-A8DB-4D93-8D09-67EEDCE7C46C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C0037C1E-2774-48AB-8091-E5828B8B93B9}

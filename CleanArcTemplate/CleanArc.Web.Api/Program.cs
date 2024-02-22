@@ -18,7 +18,6 @@ builder.Services.Configure<IdentitySettings>(configuration.GetSection(nameof(Ide
 
 
 
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
