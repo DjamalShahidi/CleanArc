@@ -13,8 +13,7 @@ namespace CleanArc.Infrastructure.CrossCutting.Logging
     {
         public static Action<HostBuilderContext, LoggerConfiguration> ConfigureLogger => (context, configuration) =>
         {
-            #region Enriching Logger Context
-
+            // Enriching Logger Context
             var env = context.HostingEnvironment;
 
             configuration.Enrich.FromLogContext()
@@ -22,9 +21,8 @@ namespace CleanArc.Infrastructure.CrossCutting.Logging
                          .Enrich.WithProperty("Environment", env.EnvironmentName)
                          .Enrich.WithSpan()
                          .Enrich.WithExceptionDetails();
-            #endregion
 
-
+            // Configure column options for logging
             var columnOpts = new ColumnOptions();
             columnOpts.Store.Remove(StandardColumn.Properties);
             columnOpts.Store.Add(StandardColumn.LogEvent);
@@ -34,6 +32,7 @@ namespace CleanArc.Infrastructure.CrossCutting.Logging
 
             if (!context.HostingEnvironment.IsDevelopment())
             {
+                // Configure logging to MSSQL Server for non-development environments
                 configuration.WriteTo
                     .MSSqlServer(
                         connectionString: context.Configuration.GetConnectionString("SqlServer"),
@@ -42,6 +41,7 @@ namespace CleanArc.Infrastructure.CrossCutting.Logging
             }
             else
             {
+                // Configure logging to console and file for development environment
                 configuration.WriteTo.Console().MinimumLevel.Information();
                 configuration.WriteTo.File(new JsonFormatter(), "logs/log.json").MinimumLevel.Information();
             }
