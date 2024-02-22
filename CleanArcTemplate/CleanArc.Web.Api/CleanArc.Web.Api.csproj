@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CleanArc.Infrastructure.CrossCutting\CleanArc.Infrastructure.CrossCutting.csproj" />
+    <ProjectReference Include="..\CleanArc.Infrastructure.Identity\CleanArc.Infrastructure.Identity.csproj" />
   </ItemGroup>
 
 </Project>
