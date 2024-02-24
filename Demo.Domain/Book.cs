@@ -1,5 +1,4 @@
 ﻿using Demo.Domain.Common;
-using System.Security.Principal;
 
 namespace Demo.Domain
 {
