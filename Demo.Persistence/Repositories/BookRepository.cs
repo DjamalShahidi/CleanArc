@@ -11,10 +11,9 @@ namespace Demo.Persistence.Repositories
         {
             this._demoDbContext = demoDbContext;
         }
-        public async Task<bool> IsExistWithTitle(string title, CancellationToken cancellationToken)
+        public async Task<bool> IsExistWithTitle(string title)
         {
             return await _demoDbContext.Books.AnyAsync(a => a.Title == title);
         }
-
     }
 }

@@ -1,3 +1,4 @@
+using Demo.Api.Middleware;
 using Demo.Application;
 using Demo.Persistence;
 
@@ -44,6 +45,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 

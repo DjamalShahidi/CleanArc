@@ -19,7 +19,7 @@ namespace Demo.Application.Features.Book.Handlers.Queries
 
         public async Task<BookDto> Handle(GetBookDetail request,CancellationToken cancellationToken)
         {
-            var book = await _bookRepository.GetAsync(request.Id,cancellationToken);
+            var book = await _bookRepository.GetAsync(request.Id);
             return _mapper.Map<BookDto>(book);
         }
     }

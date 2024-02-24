@@ -1,4 +1,5 @@
-﻿using Demo.Application.Features.Book.Requests.Queries;
+﻿using Demo.Application.Features.Book.Requests.Commands;
+using Demo.Application.Features.Book.Requests.Queries;
 using Demo.Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -36,8 +37,10 @@ namespace Demo.Api.Controllers
 
         // POST api/<BookController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task AddBook([FromBody] AddBook addBook)
         {
+            await _mediator.Send(addBook);
+
         }
 
         // PUT api/<BookController>/5

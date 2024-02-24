@@ -14,6 +14,7 @@ namespace Demo.Persistence
                   options.UseSqlServer(configuration.GetConnectionString("DemoConnectionString")));
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IBookRepository, BookRepository>();
             return services;
         }

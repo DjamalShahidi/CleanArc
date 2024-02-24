@@ -18,39 +18,36 @@ namespace Demo.Persistence.Repositories
 
         }
 
-        public async Task<T> AddAsync(T entity, CancellationToken cancellationToken)
+        public async Task<T> AddAsync(T entity)
         {
-            await _demoDbContext.AddAsync(entity, cancellationToken);
-            await _demoDbContext.SaveChangesAsync(cancellationToken);
+            await _demoDbContext.AddAsync(entity);
             return entity;
         }
 
-        public async Task<List<T>> AddRangeAsync(List<T> entities, CancellationToken cancellationToken)
+        public async Task<List<T>> AddRangeAsync(List<T> entities)
         {
-            await _demoDbContext.AddRangeAsync(entities, cancellationToken);
-            await _demoDbContext.SaveChangesAsync(cancellationToken);
+            await _demoDbContext.AddRangeAsync(entities);
             return entities;
         }
-        public async Task<bool> Exists(int id, CancellationToken cancellationToken)
+        public async Task<bool> Exists(int id)
         {
-           var entity= await GetAsync(id, cancellationToken);
+           var entity= await GetAsync(id);
 
             return entity != null;
         }
 
-        public async Task<T> GetAsync(int id, CancellationToken cancellationToken)
+        public async Task<T> GetAsync(int id)
         {
-            return await _demoDbContext.Set<T>().FindAsync(id, cancellationToken);
+            return await _demoDbContext.Set<T>().FindAsync(id);
         }
 
-        public async Task Delete(T entity, CancellationToken cancellationToken)
+        public void Delete(T entity)
         {
             _demoDbContext.Set<T>().Remove(entity);
-            await _demoDbContext.SaveChangesAsync(cancellationToken);
         }
 
   
-        public async Task<List<T>> GetRangeAsync(Expression<Func<T, bool>> filter,int? from=null,int? to=null, CancellationToken cancellationToken=default)
+        public async Task<List<T>> GetRangeAsync(Expression<Func<T, bool>> filter,int? from=null,int? to=null)
         {
             IQueryable<T> query=dbSet;
 
@@ -76,14 +73,13 @@ namespace Demo.Persistence.Repositories
 
             }
 
-            return await query.ToListAsync(cancellationToken);
+            return await query.ToListAsync();
 
         }
 
-        public async Task Update(T entity, CancellationToken cancellationToken)
+        public void Update(T entity)
         {
             _demoDbContext.Entry(entity).State = EntityState.Modified;
-            await _demoDbContext.SaveChangesAsync(cancellationToken);
         }
     }
 

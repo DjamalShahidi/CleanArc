@@ -9,18 +9,18 @@ namespace Demo.Application.Features.Book.Handlers.Commands
 {
     public class AddBookHandler : IRequestHandler<AddBook, int>
     {
-        private readonly IBookRepository _bookRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public AddBookHandler(IBookRepository bookRepository, IMapper mapper)
+        public AddBookHandler(IUnitOfWork unitOfWork,  IBookRepository bookRepository, IMapper mapper)
         {
-            this._bookRepository = bookRepository;
+            this._unitOfWork = unitOfWork;
             this._mapper = mapper;
         }
 
         public async Task<int> Handle(AddBook request, CancellationToken cancellationToken)
         {
-            var validator = new AddBookDtoValidator(_bookRepository);
+            var validator = new AddBookDtoValidator(_unitOfWork.BookRepository);
             var validatorResult = await validator.ValidateAsync(request.AddBookDto);
 
             if(validatorResult.IsValid==false)
@@ -33,7 +33,9 @@ namespace Demo.Application.Features.Book.Handlers.Commands
             //throw new NotFoundException(nameof(Book),id);
 
 
-            book = await _bookRepository.AddAsync(book,cancellationToken);
+            book = await _unitOfWork.BookRepository.AddAsync(book);
+
+            await _unitOfWork.Save(cancellationToken);
 
             return book.Id;
         }

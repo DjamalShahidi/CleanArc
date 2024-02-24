@@ -23,7 +23,7 @@ namespace Demo.Application.Features.Book.Handlers.Queries
         {
             Expression<Func<Domain.Book, bool>> filter = a => a.IsDeleted == false;
 
-            var books = await _bookRepository.GetRangeAsync(filter,null,null,cancellationToken);
+            var books = await _bookRepository.GetRangeAsync(filter,null,null);
 
             var bookDtos= _mapper.Map<List<BookDto>>(books);
 
