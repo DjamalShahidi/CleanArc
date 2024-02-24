@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Demo.Application
 {
-    public static class ApplicationServiceRegisteration
+    public static class ApplicationServicesRegisteration
     {
         public static IServiceCollection ConfigureApplicationServices(this IServiceCollection services)
         {

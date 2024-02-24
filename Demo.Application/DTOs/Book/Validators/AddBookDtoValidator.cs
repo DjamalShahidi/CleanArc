@@ -1,11 +1,5 @@
-﻿using Demo.Application.Persistence.Contracts;
+﻿using Demo.Application.Contracts.Persistence;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Demo.Application.DTOs.Book.Validators
 {
@@ -20,7 +14,7 @@ namespace Demo.Application.DTOs.Book.Validators
                 .NotNull().WithMessage("{PropertyName} must be send")
                 .MustAsync(async (title, token) =>
                 {
-                    var isExist = await _bookRepository.IsExistWithTitle(title);
+                    var isExist = await _bookRepository.IsExistWithTitle(title,token);
                     return !isExist;
 
                 }).WithMessage("Book with this title is exist");

@@ -9,6 +9,6 @@ namespace Demo.Domain
 
         public int Count { get; set; }
 
-        public bool IsDleted { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

@@ -1,15 +1,9 @@
 ﻿using AutoMapper;
+using Demo.Application.Contracts.Persistence;
 using Demo.Application.DTOs.Book.Validators;
 using Demo.Application.Exceptions;
 using Demo.Application.Features.Book.Requests.Commands;
-using Demo.Application.Persistence.Contracts;
-using Demo.Domain;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Demo.Application.Features.Book.Handlers.Commands
 {
@@ -39,7 +33,7 @@ namespace Demo.Application.Features.Book.Handlers.Commands
             //throw new NotFoundException(nameof(Book),id);
 
 
-            book = await _bookRepository.AddAsync(book);
+            book = await _bookRepository.AddAsync(book,cancellationToken);
 
             return book.Id;
         }

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using Demo.Application.Contracts.Persistence;
 using Demo.Application.DTOs.Book;
 using Demo.Application.Features.Book.Requests.Queries;
-using Demo.Application.Persistence.Contracts;
 using MediatR;
 
 namespace Demo.Application.Features.Book.Handlers.Queries
@@ -19,7 +19,7 @@ namespace Demo.Application.Features.Book.Handlers.Queries
 
         public async Task<BookDto> Handle(GetBookDetail request,CancellationToken cancellationToken)
         {
-            var book = await _bookRepository.GetAsync(request.Id);
+            var book = await _bookRepository.GetAsync(request.Id,cancellationToken);
             return _mapper.Map<BookDto>(book);
         }
     }

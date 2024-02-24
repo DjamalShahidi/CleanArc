@@ -1,13 +1,8 @@
 ﻿using AutoMapper;
+using Demo.Application.Contracts.Persistence;
 using Demo.Application.DTOs.Book;
 using Demo.Application.Features.Book.Requests.Queries;
-using Demo.Application.Persistence.Contracts;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Demo.Application.Features.Book.Handlers.Queries
 {
@@ -24,7 +19,9 @@ namespace Demo.Application.Features.Book.Handlers.Queries
         
         public async Task<List<BookDto>> Handle(GetBookList request,CancellationToken cancellationToken)
         {
-            var books = await _bookRepository.GetListAsync();
+            Func<Domain.Book, bool> filter = a => a.IsDeleted == false;
+
+            var books = await _bookRepository.GetRangeAsync(filter,null,null,cancellationToken);
 
             return _mapper.Map<List<BookDto>>(books);
         }
