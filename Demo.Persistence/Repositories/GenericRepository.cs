@@ -1,15 +1,21 @@
 ﻿using Demo.Application.Contracts.Persistence;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq.Expressions;
 
 namespace Demo.Persistence.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly DemoDbContext _demoDbContext;
+        internal DbSet<T> dbSet;
 
         public GenericRepository(DemoDbContext demoDbContext)
         {
             this._demoDbContext = demoDbContext;
+            dbSet = _demoDbContext.Set<T>();
+
         }
 
         public async Task<T> AddAsync(T entity, CancellationToken cancellationToken)
@@ -43,11 +49,17 @@ namespace Demo.Persistence.Repositories
             await _demoDbContext.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task<List<T>> GetRangeAsync(Func<T, bool> filter,int? from=null,int? to=null, CancellationToken cancellationToken=default)
+  
+        public async Task<List<T>> GetRangeAsync(Expression<Func<T, bool>> filter,int? from=null,int? to=null, CancellationToken cancellationToken=default)
         {
-            IQueryable<T> query = _demoDbContext.Set<T>();
+            IQueryable<T> query=dbSet;
 
-            query = query.Where(a => filter(a));
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            query = query.Where(filter);
 
             if (from != null || to != null)
             {
@@ -60,13 +72,12 @@ namespace Demo.Persistence.Repositories
                     to = 10;
                 }
 
-                return await query.Skip(from.Value).Take(to.Value).ToListAsync(cancellationToken);
+                query = query.Skip(from.Value).Take(to.Value);
 
             }
-            else
-            {
-                return await query.ToListAsync(cancellationToken);
-            }
+
+            return await query.ToListAsync(cancellationToken);
+
         }
 
         public async Task Update(T entity, CancellationToken cancellationToken)
@@ -75,4 +86,7 @@ namespace Demo.Persistence.Repositories
             await _demoDbContext.SaveChangesAsync(cancellationToken);
         }
     }
+
+    //public class Repository<T> : IRepository<T> where T : class
+    //}
 }

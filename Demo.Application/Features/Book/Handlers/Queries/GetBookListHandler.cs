@@ -2,11 +2,13 @@
 using Demo.Application.Contracts.Persistence;
 using Demo.Application.DTOs.Book;
 using Demo.Application.Features.Book.Requests.Queries;
+using Demo.Application.Responses;
 using MediatR;
+using System.Linq.Expressions;
 
 namespace Demo.Application.Features.Book.Handlers.Queries
 {
-    public class GetBookListHandler : IRequestHandler<GetBookList, List<BookDto>>
+    public class GetBookListHandler : IRequestHandler<GetBookList, Response>
     {
         private readonly IBookRepository _bookRepository;
         private readonly IMapper _mapper;
@@ -17,13 +19,15 @@ namespace Demo.Application.Features.Book.Handlers.Queries
             this._mapper = mapper;
         }
         
-        public async Task<List<BookDto>> Handle(GetBookList request,CancellationToken cancellationToken)
+        public async Task<Response> Handle(GetBookList request,CancellationToken cancellationToken)
         {
-            Func<Domain.Book, bool> filter = a => a.IsDeleted == false;
+            Expression<Func<Domain.Book, bool>> filter = a => a.IsDeleted == false;
 
             var books = await _bookRepository.GetRangeAsync(filter,null,null,cancellationToken);
 
-            return _mapper.Map<List<BookDto>>(books);
+            var bookDtos= _mapper.Map<List<BookDto>>(books);
+
+            return new Response(bookDtos);
         }
     }
 }
